@@ -50,7 +50,7 @@ With the [AI SDK](https://ai-sdk.dev/docs/introduction), you can also switch to 
 
 You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/templates/next.js/nextjs-ai-chatbot)
+[![Deploy with JAB](https://vercel.com/button)](https://vercel.com/templates/next.js/nextjs-ai-chatbot)
 
 ## Running locally
 
@@ -69,3 +69,45 @@ pnpm dev
 ```
 
 Your app template should now be running on [localhost:3000](http://localhost:3000).
+
+
+JAB Changes are as follows:
+
+1. Created .env.local file
+2. Modified providers.ts
+"// lib/ai/providers.ts
+import { customProvider } from "ai";
+import { createOpenAI } from "@ai-sdk/openai";
+import { isTestEnvironment } from "../constants";
+
+const openai = createOpenAI({
+  apiKey: process.env.OPENAI_API_KEY!, // comes from .env.local
+});
+
+export const myProvider = isTestEnvironment
+  ? (() => {
+      const {
+        artifactModel,
+        chatModel,
+        reasoningModel,
+        titleModel,
+      } = require("./models.mock");
+      return customProvider({
+        languageModels: {
+          "chat-model": chatModel,
+          "chat-model-reasoning": reasoningModel,
+          "title-model": titleModel,
+          "artifact-model": artifactModel,
+        },
+      });
+    })()
+  : customProvider({
+      languageModels: {
+        "chat-model": openai("gpt-4o-mini"),
+        "chat-model-reasoning": openai("gpt-4o-mini"),
+        "title-model": openai("gpt-4o-mini"),
+        "artifact-model": openai("gpt-4o-mini"),
+      },
+    });
+"
+3. Install the OpenAI provider "pnpm add @ai-sdk/openai"
