@@ -42,3 +42,7 @@ yarn-error.log*
 /playwright-report/
 /blob-report/
 /playwright/*
+
+__pycache__/
+**/__pycache__/
+testmd.ipynb
