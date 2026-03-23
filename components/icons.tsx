@@ -56,34 +56,6 @@ export const AttachmentIcon = () => {
   );
 };
 
-export const VercelIcon = ({ size = 17 }) => {
-  return (
-    <svg
-      height={size}
-      width={size}
-      viewBox="0 0 16 16"
-      xmlns="http://www.w3.org/2000/svg"
-      strokeLinejoin="round"
-    >
-      <defs>
-        <linearGradient id="jabGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#010E63" />     {/* Deep Navy */}
-          <stop offset="25%" stopColor="#630183" />    {/* Royal Purple */}
-          <stop offset="50%" stopColor="#FF00FF" />    {/* Magenta */}
-          <stop offset="75%" stopColor="#7FFF41" />    {/* Neon Green */}
-          <stop offset="100%" stopColor="#000000" />   {/* Black */}
-        </linearGradient>
-      </defs>
-
-      <path
-        d="M8 1L16 15H0L8 1Z"
-        fill="url(#jabGradient)"
-        stroke="none"
-      />
-    </svg>
-  );
-};
-
 export const GitIcon = () => {
   return (
     <svg

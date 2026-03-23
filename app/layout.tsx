@@ -8,8 +8,16 @@ import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://chat.vercel.ai"),
-  title: "Next.js Chatbot Template",
-  description: "Next.js chatbot template using the AI SDK.",
+  title: "JAB Chatbot",
+  description: "Your personalized AI assistant by Jordan Borden. Explore the future of interactive communication and technology.",
+  icons: {
+    icon: [
+      { url: "/images/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/images/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+    ],
+    shortcut: "/images/favicon.ico",
+    apple: "/images/apple-touch-icon.png",
+  },
 };
 
 export const viewport = {
