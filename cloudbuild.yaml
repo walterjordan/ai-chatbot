@@ -26,4 +26,4 @@ images:
   - 'us-east1-docker.pkg.dev/$PROJECT_ID/jab-ai-chatbot-repo/jab-ai-chatbot-service:$COMMIT_SHA'
 
 options:
-  logging: CLOUD_LOGGING
+  logging: CLOUD_LOGGING_ONLY
